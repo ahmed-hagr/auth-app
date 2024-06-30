@@ -30,6 +30,12 @@
       "react-app/jest"
     ]
   },
+  "scripts": {
+  "dev": "next dev",
+  "build": "next build",
+  "start": "next start",
+  "lint": "next lint"
+},
   "browserslist": {
     "production": [
       ">0.2%",
