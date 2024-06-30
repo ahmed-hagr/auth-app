@@ -1,7 +1,7 @@
 import React from "react";
 import Head from "next/head";
 import { getCachedData, setCachedData } from "../hocks/UseCache";
-import PostsComponent from "../components/postsComponent";
+import PostsComponent from "../components/PostsComponent";
 
 const CACHE_KEY = "apiData";
 const CACHE_TTL = 60 * 1000; // 1 minute
