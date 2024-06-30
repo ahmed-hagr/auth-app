@@ -1,6 +1,6 @@
 import React from "react";
 import Head from "next/head";
-import { getCachedData, setCachedData } from "../hocks/UseCache";
+import { getCachedData, setCachedData } from "../hocks/useCache";
 import PostsComponent from "../components/PostsComponent";
 
 const CACHE_KEY = "apiData";
