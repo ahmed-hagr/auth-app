@@ -11,3 +11,10 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+.btn-min{
+  background-color: transparent !important;
+}
+.btn-min a{
+  color: #f1f1f1;
+  text-decoration: none;
+}
