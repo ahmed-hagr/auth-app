@@ -1,67 +1,51 @@
-// components/Navbar.js
-import React from "react";
-import AppBar from "@mui/material/AppBar";
-import Toolbar from "@mui/material/Toolbar";
-import Typography from "@mui/material/Typography";
-import IconButton from "@mui/material/IconButton";
+import React, { useState, useEffect } from "react";
 import Link from "next/link";
-import Button from "@mui/material/Button";
 import Cookie from "js-cookie";
+import { useRouter } from "next/router";
 
 const Navbar = () => {
-  const token = Cookie.get("token"); 
+  const [isAuth, setIsAuth] = useState(false);
+  const token = Cookie.get("token");
+  const router = useRouter();
 
-  const isAuth = token;
-  const style = {
-    color: "#f1f1f1",
-    textDecoration: " none",
+  useEffect(() => {
+    setIsAuth(!!token);
+  }, [token]);
+  const handleLogout = () => {
+    Cookie.remove("token"); // This removes the token cookie
+    setIsAuth(false);       // Update the authentication state
+    router.push("/");
   };
   return (
-    <AppBar sx={{ marginBottom: "30px !important" }} position="fixed">
-      <Toolbar>
-        <IconButton edge="start" color="inherit" aria-label="menu">
-          {/* <MenuIcon /> */}
-        </IconButton>
-        <Typography variant="h6" style={{ flexGrow: 1 }}>
-          My App
-        </Typography>
-        {isAuth ? (
-          <React.Fragment>
-            <Button className="btn-min" color="secondary">
-              <Link style={style} href="/" passHref>
-                <Typography variant="button" color="inherit">
-                  Main
-                </Typography>
+    <nav className="bg-custom-bg text-white p-4 fixed inset-x-0 top-0 mb-8">
+      <div className="container mx-auto flex justify-between items-center">
+        <h1 className="text-lg font-semibold">My App</h1>
+        <div className="space-x-4">
+          {isAuth ? (
+            <>
+              <Link className="hover:text-gray-800" href="/">
+               Main
               </Link>
-            </Button>
-            <Button className="btn-min" color="inherit">
-              <Link style={style} href="/Posts" passHref>
-                <Typography variant="button" color="success">
+              <Link className="hover:text-gray-800" href="/Posts">
                 Posts
-                </Typography>
               </Link>
-            </Button>
-          </React.Fragment>
-        ) : (
-          <React.Fragment>
-            <Button className="btn-min" color="inherit">
-              <Link style={style} href="/Posts" passHref>
-                <Typography variant="button" color="success">
+              <button onClick={handleLogout} className="text-white bg-transparent hover:bg-gray-800 px-4 py-1 rounded">
+                Logout
+              </button>
+            </>
+          ) : (
+            <>
+              <Link className="hover:text-gray-800" href="/Posts">
                 Posts
-                </Typography>
               </Link>
-            </Button>
-            <Button className="btn-min" color="inherit">
-              <Link style={style} href="/login" passHref>
-                <Typography variant="button" color="success">
-                  Login
-                </Typography>
+              <Link className="hover:text-gray-800" href="/login">
+                Login
               </Link>
-            </Button>
-          </React.Fragment>
-        )}
-      </Toolbar>
-    </AppBar>
+            </>
+          )}
+        </div>
+      </div>
+    </nav>
   );
 };
 

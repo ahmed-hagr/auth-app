@@ -1,35 +1,20 @@
-import React from 'react'
-import { Card,  Typography, Grid, Container } from "@mui/material";
+import React from 'react';
 
-const PostsComponent = ({data}) => {
+const PostsComponent = ({ data }) => {
   return (
-    <Container>
-    <h1>Server-Side Rendered Page</h1>
-    <Grid container spacing={3}>
-      {data.map((item) => (
-        <Grid item xs={12} sm={6} md={4} key={item.id}>
-          <Card
-            sx={{
-              height: "200px",
-              overflowY: "auto",
-              padding:"15px"
-            }}
-          >
-            <Typography variant="h5" component="div">
-              {item.name}
-            </Typography>
-            <Typography variant="body2" color="text.secondary">
-              {item.email}
-            </Typography>
-            <Typography variant="body1" component="p">
-              {item.body}
-            </Typography>
-          </Card>
-        </Grid>
-      ))}
-    </Grid>
-  </Container>
+    <div className="container mx-auto px-4 mt-5 pt-5">
+      <h1 className="text-3xl font-bold-700 my-6 pt-5 text-center">My Posts</h1>
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+        {data.map((item) => (
+          <div className="p-4 border rounded shadow h-210px overflowY-auto" key={item.id} >
+            <h5 className="text-xl font-semibold">{item.name}</h5>
+            <p className="text-gray-600">{item.email}</p>
+            <p className="text-base">{item.body}</p>
+          </div>
+        ))}
+      </div>
+    </div>
   )
 }
 
-export default PostsComponent
+export default PostsComponent;

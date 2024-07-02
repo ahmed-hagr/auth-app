@@ -1,13 +1,5 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import {
-  Card,
-  CardContent,
-  Typography,
-  Grid,
-  Box,
-  Skeleton,
-} from "@mui/material";
 
 const CachedData = () => {
   const [data, setData] = useState(null);
@@ -27,63 +19,40 @@ const CachedData = () => {
   }, []);
 
   return (
-    <div>
-   
-      <h2>Cached Data</h2>
-      <Grid container spacing={2}>
+    <div className="p-4 pt-10 mt-10 mb-5">
+      <h2 className="text-2xl font-semibold mb-4 text-center ">Movies Data</h2>
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
         {data
           ? data.map((movie) => (
-              <Grid item xs={12} sm={6} md={4} key={movie.id}>
-                <Box height={100} display="flex" flexDirection="column">
-                  <Card
-                    style={{
-                      flex: 1,
-                      display: "flex",
-                      flexDirection: "column",
-                    }}
+              <div className="p-4 border rounded shadow-sm flex flex-col" key={movie.id}>
+                <div className="flex-grow">
+                  <h5 className="text-lg truncate max-w-xs font-medium">
+                    {movie.movie}
+                  </h5>
+                  <p className="text-gray-600 mt-1">
+                    Rating: {movie.rating}
+                  </p>
+                  <a
+                    href={movie.imdb_url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-blue-500 hover:text-blue-600 transition duration-300"
                   >
-                    <CardContent style={{ flexGrow: 1 }}>
-                      <Typography
-                        sx={{
-                          whiteSpace: "nowrap",
-                          overflow: "hidden",
-                          textOverflow: "ellipsis",
-                          maxWidth: "300px",
-                        }}
-                        variant="h5"
-                        component="div"
-                      >
-                        {movie.movie}
-                      </Typography>
-                      <Typography variant="body2" color="text.secondary">
-                        Rating: {movie.rating}
-                      </Typography>
-                      <a
-                        href={movie.imdb_url}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                      >
-                        View on IMDb
-                      </a>
-                    </CardContent>
-                  </Card>
-                </Box>
-              </Grid>
+                    View on IMDb
+                  </a>
+                </div>
+              </div>
             ))
           : Array.from(new Array(6)).map((_, index) => (
-              <Grid item xs={12} sm={6} md={4} key={index}>
-                <Box height={100} display="flex" flexDirection="column">
-                  <Card style={{ flex: 1 }}>
-                    <CardContent>
-                      <Skeleton width={"100px"} variant="text" />
-                      <Skeleton width={"100px"} variant="text" />
-                      <Skeleton width={"100px"} variant="text" />
-                    </CardContent>
-                  </Card>
-                </Box>
-              </Grid>
+              <div className="p-4 border rounded shadow-sm flex flex-col" key={index}>
+                <div className="animate-pulse flex flex-col space-y-2">
+                  <div className="h-4 bg-gray-300 rounded w-3/4"></div>
+                  <div className="h-4 bg-gray-300 rounded w-3/4"></div>
+                  <div className="h-4 bg-gray-300 rounded w-3/4"></div>
+                </div>
+              </div>
             ))}
-      </Grid>
+      </div>
     </div>
   );
 };
