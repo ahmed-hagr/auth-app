@@ -20,13 +20,13 @@ const CachedData = () => {
 
   return (
     <div className="p-4 pt-10 mt-10 mb-5">
-      <h2 className="text-2xl font-semibold mb-4 text-center ">Movies Data</h2>
+      <h2 className="text-2xl font-semibold text-gray-800  mb-4 text-center ">Movies Data</h2>
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
         {data
           ? data.map((movie) => (
               <div className="p-4 border rounded shadow-sm flex flex-col" key={movie.id}>
                 <div className="flex-grow">
-                  <h5 className="text-lg truncate max-w-xs font-medium">
+                  <h5 className="text-lg truncate text-gray-700 max-w-xs font-medium">
                     {movie.movie}
                   </h5>
                   <p className="text-gray-600 mt-1">

@@ -3,7 +3,7 @@ AuthApp structure
 ├── src
 |   |
     ├── puplic
-│   │   ├── index.html
+│   │   ├── 
 │   │   ├── sitemap.xml
 │   │   │  
 │   │   └──  robots 
@@ -60,7 +60,7 @@ start: Runs the built app in production mode. => npm start
 Dependencies
 React: JavaScript library for building user interfaces.
 Next.js: React framework for server-side rendering and static site generation.
-MUI (Material-UI): React component library for faster and easier web development.
+tailwind.css: React component library for faster and easier web development.
 Formik: Form library for React.
 Yup: JavaScript schema builder for value parsing and validation.
 

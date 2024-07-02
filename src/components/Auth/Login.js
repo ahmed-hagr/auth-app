@@ -30,7 +30,7 @@ const Login = () => {
     >
       {({ isSubmitting, errors, touched }) => (
         <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
-          <h1 className="text-2xl font-bold-800 mb-6 text-center">Sign in to your account</h1>
+          <h1 className="text-2xl font-bold-800 text-gray-900 mb-6 text-center">Sign in to your account</h1>
           <Form className="space-y-6">
             <div>
               <label htmlFor="email" className="block text-left text-sm font-medium text-gray-900">
