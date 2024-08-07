@@ -1,17 +1,18 @@
-/* eslint-disable no-unused-vars */
-import React from "react";
-import Navbar from "../components/Navbar";
+import React from 'react';
+import Navbar from '../components/Navbar';
 import '../styles/globals.css';
+import { PersistGate } from 'redux-persist/integration/react';
+import { store, persistor } from '../../store/store';
+import { Provider } from 'react-redux';
 
 function MyApp({ Component, pageProps }) {
-  const getInitialProps =
-    Component.getInitialProps || (() => Promise.resolve({}));
-
   return (
-    <div>
-      <Navbar />
-      <Component {...pageProps} />
-    </div>
+    <Provider store={store}>
+      <PersistGate loading={null} persistor={persistor}>
+        <Navbar />
+        <Component {...pageProps} />
+      </PersistGate>
+    </Provider>
   );
 }
 

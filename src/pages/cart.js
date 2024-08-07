@@ -1,7 +1,7 @@
 import React from "react";
-import Products from "../components/products/Products";
+import MyCart from "@/components/products/MyCart";
 import { parse } from "cookie";
-import Head from "next/head"; 
+import Head from "next/head"; // Import the Head component
 
 export const getServerSideProps = async (context) => {
   const { req } = context;
@@ -26,15 +26,15 @@ const Main = () => {
   return (
     <>
       <Head>
-        <title>Main Page</title>
+        <title>My cart</title>
         <meta
           name="description"
-          content="Overview of the cached data provided by our service."
+          content="Overview of your cart"
         />
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
         <meta name="keywords" content="caching, data insights, movies , " />
 
-        <meta property="og:title" content="Main Page" />
+        <meta property="og:title" content="Cart page" />
         <meta
           property="og:description"
           content="Learn more about our caching capabilities and data insights."
@@ -46,7 +46,7 @@ const Main = () => {
         />
       </Head>
       <main>
-        <Products />
+        <MyCart />
       </main>
     </>
   );

@@ -1,6 +1,6 @@
 import React from "react";
 import Login from "../components/Auth/Login";
-import { parse } from "cookie"; // Make sure to import the parseCookies method
+import { parse } from "cookie"; 
 
 export const getServerSideProps = async (context) => {
   const { req } = context;
@@ -18,7 +18,7 @@ export const getServerSideProps = async (context) => {
   }
 
   return {
-    props: {}, // Will be passed to the page component as props
+    props: {},
   };
 };
 const LoginPage = () => {

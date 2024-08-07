@@ -1,49 +1,7 @@
-AuthApp structure
-│
-├── src
-|   |
-    ├── puplic
-│   │   ├── 
-│   │   ├── sitemap.xml
-│   │   │  
-│   │   └──  robots 
-│   │       
-│   ├── components
-│   │   ├── Navbar.js
-│   │   ├── Auth
-│   │   │   └── Login.js
-│   │   └── cache
-│   │       └── CachedDate.js
-│   │
-│   ├── hocks
-│   │   └── Usecache.js
-│   │
-│   ├── pages
-│       ├── _app.js
-│       ├── index.js
-│       ├── login.js
-│       └── posts.js
-│
-└── package.json
-
-Folder and File Descriptions
-components: Contains reusable components.
-
-Navbar.js: The navigation bar component.
-Auth: Contains authentication-related components.
-Login.js: The login form component.
-cache: Contains caching-related components.
-CachedDate.js: Manages cached data display.
-hocks: Contains custom hooks.
-
-Usecache.js: Custom hook for caching logic.
-pages: Contains Next.js pages, responsible for routing.
-
-_app.js: Custom App component to initialize pages.
-index.js: The main landing page.
-login.js: The login page.
-posts.js: Page displaying posts.
-
+user login {
+    username :mor_2314
+    password :83r5^_
+}
 
 Scripts
 
